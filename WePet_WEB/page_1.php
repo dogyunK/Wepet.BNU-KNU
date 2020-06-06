@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>반려동물의 친절한 이웃, 위펫_비앤비</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/styles.css">
+	<script src = "js/jquery-3.5.1.js"></script>
+</head>
+<body>
+	<div id="navbar">
+    	<a id="logo" href="#">
+      		<img src="images/logo.png" height="50">
+    	</a>
+ 	</div>
+ 	<div class="main">
+ 		<div class="info">
+			
+			<h1>
+				여러분의 <b>반려동물</b>을 맡아줄 친절한 <b>이웃</b>
+			</h1>
+			<p>
+				
+			</p>
+			<h2>
+				바로, <b>위펫비앤비</b>입니다.
+			</h2>
+			<a href="page_dol.php"> 돌보미로 시작하기</a>
+			<a href="page_mat.php"> 맡기미로 시작하기</a>
+		</div>
+	</div>
+</body>
+</html>

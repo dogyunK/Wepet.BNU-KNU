@@ -1,3 +1,8 @@
+<?php
+
+include 'process_dol_info.php'
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +13,7 @@
 </head>
 <body>
 	<div id="navbar">
-    	<a id="logo" href="page_1.php">
+    	<a id="logo" href="main.php">
       		<img src="images/logo.png" height="50">
     	</a>
  	</div>

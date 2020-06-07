@@ -66,7 +66,10 @@
 					<option value="2">2마리</option>
 					<option value="3">3마리</option>
 					<option value="over4">4+마리</option>
-				</select>	
+				</select>
+
+				<textarea  name="condition" cols="50" rows="10" class="text-field_3 conditionInput" placeholder="반려동물 정보"></textarea>
+				<textarea  name="requier" cols="50" rows="10" class="text-field_3 requirementInput" placeholder="요구 사항"></textarea>	
  		</form>
  		<a href="page_mat_new_2.php" class="next"> 다음</a>
 	</div>

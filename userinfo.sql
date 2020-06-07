@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- 생성 시간: 20-06-06 18:08
+-- 생성 시간: 20-06-07 10:00
 -- 서버 버전: 8.0.20
 -- PHP 버전: 7.4.6
 
@@ -28,40 +28,44 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `돌보미` (
-  `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `password` int DEFAULT NULL,
-  `phone` int DEFAULT NULL,
-  `date1` date DEFAULT NULL,
-  `date2` date DEFAULT NULL,
-  `addr` text CHARACTER SET utf8 COLLATE utf8_general_ci,
-  `addrex` text CHARACTER SET utf8 COLLATE utf8_general_ci
+  `dolID` int NOT NULL,
+  `name` text COLLATE utf8mb4_unicode_ci,
+  `password` text COLLATE utf8mb4_unicode_ci,
+  `phone` text COLLATE utf8mb4_unicode_ci,
+  `date1` text COLLATE utf8mb4_unicode_ci,
+  `date2` text COLLATE utf8mb4_unicode_ci,
+  `addr` text COLLATE utf8mb4_unicode_ci,
+  `addrex` text COLLATE utf8mb4_unicode_ci,
+  `dolCondition` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `requierment` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='돌보미 기본정보';
 
 --
 -- 테이블의 덤프 데이터 `돌보미`
 --
 
-INSERT INTO `돌보미` (`name`, `password`, `phone`, `date1`, `date2`, `addr`, `addrex`) VALUES
-('asdf', 1234, NULL, NULL, NULL, NULL, NULL),
-('asdf', 123, NULL, NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
+INSERT INTO `돌보미` (`dolID`, `name`, `password`, `phone`, `date1`, `date2`, `addr`, `addrex`, `dolCondition`, `requierment`) VALUES
+(8, '김철수', '1234', '01012345678', '06/01/2020', '06/07/2020', '서울 송파구 풍성로 4-3', '행복아파트', '얌전했으면 좋겠어요', '');
 
 --
--- 테이블 구조 `맡기미`
+-- 덤프된 테이블의 인덱스
 --
 
-CREATE TABLE `맡기미` (
-  `name` int NOT NULL,
-  `password` int DEFAULT NULL,
-  `number` int DEFAULT NULL,
-  `date1` date DEFAULT NULL,
-  `date2` date DEFAULT NULL,
-  `pet1` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `pet2` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-  `petnumber1` int DEFAULT NULL,
-  `petnumber2` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+--
+-- 테이블의 인덱스 `돌보미`
+--
+ALTER TABLE `돌보미`
+  ADD PRIMARY KEY (`dolID`);
+
+--
+-- 덤프된 테이블의 AUTO_INCREMENT
+--
+
+--
+-- 테이블의 AUTO_INCREMENT `돌보미`
+--
+ALTER TABLE `돌보미`
+  MODIFY `dolID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

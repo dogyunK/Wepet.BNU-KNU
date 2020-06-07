@@ -22,7 +22,7 @@ include 'process_dol_info.php'
 			<h3>
 				매칭이 완료되었습니다!
 			</h3>
-			<a href="page_1.html"> 홈으로 가기</a>
+			<a href="main.php"> 홈으로 가기</a>
 			<a href="page_dol_match.php"> 내 매칭 확인하기</a>
 		</div>
 	</div>

@@ -95,33 +95,40 @@ body{
 
 .match_c_form{
 	text-align: center;
-	width: 300px;
-	height: 400px;
+	width: 350px;
+	height: 500px;
 	background-color: brown;
-	margin-left: auto;
+	margin-left: 250px;
 	margin-right: auto;
-	margin-top: 100px;
+	margin-top: 50px;
     margin-bottom: auto;
 	border-radius: 10px;
 	padding: 20px;
+	float: left;
+	overflow: auto
 }
 
-.match_s_form{
-	text-align: center;
-	width: 300px;
-	height: 220px;
-	background-color: brown;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 200px;
-    margin-bottom: auto;
+.match_c_form::-webkit-scrollbar{
+	width: 10px;
+}
+
+.match_c_form::-webkit-scrollbar-thumb{
+	background-color: white;
 	border-radius: 10px;
-	padding: 20px;
+	background-clip: padding-box;
+	border: 2px soild transparent; 
+}
+
+.match_c_form::-webkit-scrollbar-track{
+	background-color: grey;
+	border-radius: 10px;
+	box-shadow: inset 0px 0px 5px white;
 }
 
 .match_c_form h1{
 	font-size: 20px;
 	color : white;
+	margin-top: 0px;
 	margin-bottom: 20px;
 }
 
@@ -136,8 +143,75 @@ body{
 	color: brown;
 	text-decoration: none;
 	border-radius: 5px;  
-	margin: 15px;
+	margin-bottom: 15px;
 	padding-top: 8px;
+}
+
+.match_g_form{
+	text-align: center;
+	width: 500px;
+	height: 500px;
+	background-color: brown;
+	margin-left: auto;
+	margin-right: 250px;
+	margin-top: 50px;
+    margin-bottom: auto;
+	border-radius: 10px;
+	padding: 20px;
+	float: right;
+}
+
+.match_g_form h1{
+	font-size: 20px;
+	color : white;
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+
+.match_gin_form{
+	box-sizing: border-box;
+	display: inline-block;
+	text-align: center;
+	width: 490px;
+	height: 420px;
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+    margin-bottom: 10px;
+	border-radius: 10px;
+	padding: 10px;
+	overflow: auto;
+}
+
+.match_gin_form::-webkit-scrollbar{
+	width: 10px;
+}
+
+.match_gin_form::-webkit-scrollbar-thumb{
+	background-color: black;
+	border-radius: 10px;
+	background-clip: padding-box;
+	border: 2px soild transparent; 
+}
+
+.match_gin_form::-webkit-scrollbar-track{
+	background-color: grey;
+	border-radius: 10px;
+	box-shadow: inset 0px 0px 5px white;
+}
+
+.match_s_form{
+	text-align: center;
+	width: 300px;
+	height: 180px;
+	background-color: brown;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 200px;
+    margin-bottom: 200px;
+	border-radius: 10px;
+	padding: 20px;
 }
 
 .match_s_form h1{
@@ -161,9 +235,44 @@ body{
 	padding-top: 8px;
 }
 
+.match_l_form{
+	text-align: center;
+	width: 500px;
+	height: 520px;
+	background-color: brown;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+    margin-bottom: auto;
+	border-radius: 10px;
+	padding: 20px;
+}
+
+.match_l_form h1{
+	font-size: 20px;
+	color : white;
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+
+.match_l_form a{
+	box-sizing: border-box;
+	display: inline-block;
+  	width: 200px;
+  	height: 40px;
+	font-size: 17px;
+	font-weight: 800;
+	background-color: white;
+	color: brown;
+	text-decoration: none;
+	border-radius: 5px;  
+	margin-bottom: 15px;
+	padding-top: 8px;
+}
+
 .text-field_1{
 	font-size: 14px;
-	width: 280px;
+	width: 230px;
 	border: none;
 	border-radius: 5px;
 	padding: 10px;
@@ -216,21 +325,40 @@ body{
 }
 
 .submit-btn{
-	font-size: 14px;
-	width: 100%;
-	border: none;
-	border-radius: 5px;
-	padding: 10px;
-	margin-bottom: 10px;
+	box-sizing: border-box;
+	display: inline-block;
+  	width: 200px;
+  	height: 40px;
+	font-size: 17px;
+	font-weight: 800;
+	background-color: white;
+	color: brown;
+	text-decoration: none;
+	border-radius: 5px;  
+	margin: 5px;
+	padding-top: 8px;
 }
 
-.adr-btn{
-	display: inline;
-	font-size: 14px;
-	width: 80px;
-	border: none;
-	border-radius: 5px;
-	padding: 10px;
-	margin-bottom: 10px;
+.log-btn{
+	box-sizing: border-box;
+	display: inline-block;
+  	width: 200px;
+  	height: 40px;
+	font-size: 17px;
+	font-weight: 800;
+	background-color: white;
+	color: brown;
+	text-decoration: none;
+	border-radius: 5px;  
+	margin-top : 15px;
+	padding-top: 8px;
 }
 
+.checknot{
+	box-sizing: border-box;
+	display: inline-block;
+	font-size: 14px;
+	color: white;
+	position: relative;
+	left: 170px;
+}

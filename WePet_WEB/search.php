@@ -15,10 +15,11 @@
  	<div class="main">
  		<div class="info">
 			<h2>
-				안녕하세요. 어떤 서비스를 원하시나요?
+				조회
 			</h2>
-			<a href="choice.php"> 등록하기</a>
-			<a href="search.php"> 조회하기</a>
+
+            <!-- 전화번호 입력 -->
+            
 		</div>
 	</div>
 </body>

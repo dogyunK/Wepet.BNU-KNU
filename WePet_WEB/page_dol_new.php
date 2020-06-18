@@ -20,6 +20,7 @@
 	</script>
 
 </head>
+
 <body>
 	<div id="navbar">
     	<a id="logo" href="main.php">

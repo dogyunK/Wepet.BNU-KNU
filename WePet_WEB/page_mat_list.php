@@ -1,3 +1,16 @@
+<?php
+	include 'process_dol_info.php';
+
+	$sql = "SELECT * FROM 돌보미";
+	
+	$result = mysqli_query($conn, $sql);
+	$list = '';
+
+	while($row = mysqli_fetch_array($result) ){
+		$list = $list."<li><a href='page_mat_list.php?id={$row['dolID']}'>{$row['name']}</a></li>";
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +27,10 @@
  	</div>
  	<div class="match_c_form">
  		<h1>등록된 매칭 목록</h1>
+		
+		<?=$list;?>
+		
+
  		<a href="page_mat_new.php"> 선택하기</a>
 	</div>
 </body>

@@ -6,9 +6,11 @@
 
 
 	if( stristr( $url, 'dol' ) ){
+		$userType = 'dol';
 		$sql = "SELECT * FROM 돌보미 WHERE id={$idString}";
 	}
 	if( stristr( $url, 'mat') ){
+		$userType = 'mat';
 		$sql = "SELECT * FROM 맡기미 WHERE id={$idString}";
 	}
 	
@@ -51,7 +53,7 @@
 
 			<?=$list;?>
 			
-			<form action="신청완료.php" method="POST">
+			<form action="신청완료.php?id=<?php echo $idString;?>/<?php echo $userType;?>" method="POST">
 				<input type="text" name="phonenumber" class="text-field_1 numberInput" placeholder="연락처">
 				<input type="submit" class="submit-btn" value="매칭하기"></br>
 				<a href="main_dol.php">돌아가기</a>

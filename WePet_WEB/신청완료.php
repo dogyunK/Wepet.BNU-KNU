@@ -4,7 +4,29 @@
 
 	$phonenumber = $_POST['phonenumber'];
 
+	$url = getenv("QUERY_STRING");	//웹주소에서 정보 가져오기
+	$idString = preg_replace("/[^0-9]*/s", "", $url);	//문자열에서 숫자만 추출하기
 
+	echo $idString;
+	echo $phonenumber;
+	if( stristr( $url, 'dol' ) ){
+		$userType = 'dol';
+		$sql = "UPDATE 돌보미 SET code = '{$phonenumber}' WHERE id = {$idString}";
+	}
+	if( stristr( $url, 'mat') ){
+		$userType = 'mat';
+		$sql = "UPDATE 맡기미 SET code = '{$phonenumber}' WHERE id = {$idString}";
+	}
+
+	$result = mysqli_query($conn, $sql);
+
+	if( $result === false ){
+		echo '오류발생';
+		echo mysqli_error($conn);
+	}
+	else{
+		echo '등록성공';
+	}
 ?>
 
 <!DOCTYPE html>

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
     $conn = mysqli_connect('localhost', 'root', '111111', 'userinfo');
 
@@ -7,10 +6,10 @@
 
 
     if( $userType == 'dol' ){
-        $sql = "SELECT * FROM 돌보미";
+	$sql = "SELECT * FROM 돌보미 WHERE code = {$phonenumber}";
     }
     else if( $userType == 'mat' ){
-        $sql = "SELECT * FROM 맡기미";
+        $sql = "SELECT * FROM 맡기미 WHERE code = {$phonenumber}";
     }
 
     
@@ -20,10 +19,15 @@
 
     // 테이블에서 일치하는 전화번호의 행을 다 불러와야함.
 	while($row = mysqli_fetch_array($result) ){
-        $list = $list.
-            "<li>
-                <a href='page_mat_list.php?id={$row['dolID']}'> {$row['name']} </a>
-            </li>";
+		$list = $list.
+			"
+				<h1>{$phonenumber}님과 매칭된 분의 정보입니다.</h1>
+				<p>이름 : {$row['name']}</p>
+				<p>전화번호 : {$row['phonenumber']}</p>
+				<p>날짜 : {$row['date1']} ~ {$row['date2']}</p>
+				<p>지역 : {$row['area1']} {$row['area2']} {$row['addrex']}</p>
+				<p>기타</br>{$row['userCondition']} {$row['requierment']}</p>
+            ";
 	}
 ?>
 

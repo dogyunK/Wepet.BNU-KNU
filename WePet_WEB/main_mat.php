@@ -7,7 +7,10 @@
 	$list = '';
 
 	while($row = mysqli_fetch_array($result) ){
-		$list = $list."<li><a href='page_mat_list.php?id={$row['matID']}'>{$row['name']}</a></li>";
+		$list = $list.
+			"<li>
+				<a href='정보보기.php?id={$row['matID']}'>{$row['name']}</a>
+			</li>";
 	}
 ?>
 

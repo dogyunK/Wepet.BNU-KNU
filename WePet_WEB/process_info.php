@@ -35,7 +35,6 @@ if( $userType == 'mat'){
     ";
 }
 
-
 // db로 sql문 실행
 $result = mysqli_query($conn, $sql);
 

@@ -108,7 +108,7 @@
  	<div class="match_c_form">
  		<h1>정보 입력</h1>
 
-		<form name="dol_info" action="완료.php" method="POST">
+		<form name="dol_info" action="등록완료.php" method="POST">
 			<label><input type="radio" name="userType" value="dol"> 돌보미</label>
 			<label><input type="radio" name="userType" value="mat"> 맡기미</label>
 

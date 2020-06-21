@@ -12,15 +12,22 @@
       		<img src="images/logo.png" height="50">
     	</a>
  	</div>
- 	<div class="main">
- 		<div class="info">
-			<h2>
-				조회
-			</h2>
 
-            <!-- 전화번호 입력 -->
-            
-		</div>
+	<div class="match_c_form">
+
+ 		<h1>본인의 연락처를 입력하십시오.</h1>
+
+ 		<form action="check.php" method="POST">
+
+			<label><input type="radio" name="userType" value="dol"> 돌보미</label>
+			<label><input type="radio" name="userType" value="mat"> 맡기미</label>
+
+			<input type="text" name="phonenumber" class="text-field_1 numberInput" placeholder="연락처">
+
+			<input type="submit" class="submit-btn" value="검색">
+		</form>
+
 	</div>
+
 </body>
 </html>

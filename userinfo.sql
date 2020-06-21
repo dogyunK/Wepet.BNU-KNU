@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- 생성 시간: 20-06-07 10:19
+-- 생성 시간: 20-06-21 11:24
 -- 서버 버전: 8.0.20
 -- PHP 버전: 7.4.6
 
@@ -30,10 +30,11 @@ SET time_zone = "+00:00";
 CREATE TABLE `돌보미` (
   `dolID` int NOT NULL,
   `name` text COLLATE utf8mb4_unicode_ci,
-  `password` text COLLATE utf8mb4_unicode_ci,
-  `phone` text COLLATE utf8mb4_unicode_ci,
+  `phonenumber` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `date1` text COLLATE utf8mb4_unicode_ci,
   `date2` text COLLATE utf8mb4_unicode_ci,
+  `area1` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `area2` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `addr` text COLLATE utf8mb4_unicode_ci,
   `addrex` text COLLATE utf8mb4_unicode_ci,
   `dolCondition` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -44,8 +45,11 @@ CREATE TABLE `돌보미` (
 -- 테이블의 덤프 데이터 `돌보미`
 --
 
-INSERT INTO `돌보미` (`dolID`, `name`, `password`, `phone`, `date1`, `date2`, `addr`, `addrex`, `dolCondition`, `requierment`) VALUES
-(8, '김철수', '1234', '01012345678', '06/01/2020', '06/07/2020', '서울 송파구 풍성로 4-3', '행복아파트', '얌전했으면 좋겠어요', '');
+INSERT INTO `돌보미` (`dolID`, `name`, `phonenumber`, `date1`, `date2`, `area1`, `area2`, `addr`, `addrex`, `dolCondition`, `requierment`) VALUES
+(20, '김철수', '01043284238', '06/03/2020', '06/13/2020', '서울', '성동구', 'ㅁㄴㅇㄹ', 'ㅁㄴㅇㄹ', 'ㅁㄴㅇㄹ', 'ㅁㄴㅇㄹ'),
+(21, 'asdf', 'asdf', '06/04/2020', '06/10/2020', '부산', '영도구', 'asdf', 'asdf', 'asdf', 'asdf'),
+(22, 'asdfasdf', 'asdfasdf', '06/11/2020', '06/25/2020', '부산', '영도구', NULL, 'asdf', 'asdf', 'asdf'),
+(23, '김아무개', '01058564246', '06/03/2020', '06/16/2020', '인천', '부평구', NULL, '아니동', 'ㅇㅇ', 'ㅇㅇ');
 
 -- --------------------------------------------------------
 
@@ -56,22 +60,27 @@ INSERT INTO `돌보미` (`dolID`, `name`, `password`, `phone`, `date1`, `date2`,
 CREATE TABLE `맡기미` (
   `matID` int NOT NULL,
   `name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `phone` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `phonenumber` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `date1` text COLLATE utf8mb4_unicode_ci,
   `date2` text COLLATE utf8mb4_unicode_ci,
-  `pet1` text CHARACTER SET utf8 COLLATE utf8_general_ci,
-  `pet2` text CHARACTER SET utf8 COLLATE utf8_general_ci,
-  `petnumber1` text COLLATE utf8mb4_unicode_ci,
-  `petnumber2` text COLLATE utf8mb4_unicode_ci
+  `area1` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `area2` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `addrex` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `matCondition` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `requierment` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- 테이블의 덤프 데이터 `맡기미`
 --
 
-INSERT INTO `맡기미` (`matID`, `name`, `password`, `phone`, `date1`, `date2`, `pet1`, `pet2`, `petnumber1`, `petnumber2`) VALUES
-(1, 'asdfasdf', 'asdf', '123', '123', '123', '중형견', '중형견', '2', '2');
+INSERT INTO `맡기미` (`matID`, `name`, `phonenumber`, `date1`, `date2`, `area1`, `area2`, `addrex`, `matCondition`, `requierment`) VALUES
+(1, 'asdfasdf', '123', '123', '123', '', '', '', '', ''),
+(2, 'ㅁㄴㅇㄹ', '1234', '1234', '1234', '', '', '', '', ''),
+(3, '', '', '06/02/2020', '06/09/2020', '', '', '', '', ''),
+(4, 'sadf', 'asdf', '06/01/2020', '06/02/2020', '', '', '', '', ''),
+(5, 'sadf', 'asdf', '06/01/2020', '06/02/2020', '', '', '', '', ''),
+(6, 'asdf', 'asdf', '06/04/2020', '06/10/2020', '부산', '영도구', 'asdf', 'asdf', 'asdf');
 
 --
 -- 덤프된 테이블의 인덱스
@@ -97,13 +106,13 @@ ALTER TABLE `맡기미`
 -- 테이블의 AUTO_INCREMENT `돌보미`
 --
 ALTER TABLE `돌보미`
-  MODIFY `dolID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `dolID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- 테이블의 AUTO_INCREMENT `맡기미`
 --
 ALTER TABLE `맡기미`
-  MODIFY `matID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `matID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

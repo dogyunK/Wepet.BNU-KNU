@@ -1,6 +1,8 @@
 <?php
 	$conn = mysqli_connect('localhost', 'root', '111111', 'userinfo');
 
+	$userType = getenv("QUERY_STRING");
+
 	$sql = "SELECT * FROM 맡기미";
 	
 	$result = mysqli_query($conn, $sql);
@@ -9,7 +11,7 @@
 	while($row = mysqli_fetch_array($result) ){
 		$list = $list.
 			"<li>
-				<a href='정보보기.php?id={$row['matID']}'>{$row['name']}</a>
+				<a href='정보보기.php?id={$row['id']}/{$userType}'>{$row['name']}</a>
 			</li>";
 	}
 ?>
@@ -40,8 +42,8 @@
 			</div>
 
 			<div>
-				<a href="main_dol.php">돌보미 게시판</a>
-				<a href="main_mat.php">맡기미 게시판</a>
+				<a href="main_dol.php?dol">돌보미 게시판</a>
+				<a href="main_mat.php?mat">맡기미 게시판</a>
 			</div>
 
 			<p> 등록된 맡기미 목록 </p>

@@ -1,3 +1,12 @@
+<?php
+
+	$conn = mysqli_connect('localhost', 'root', '111111', 'userinfo');
+
+	$phonenumber = $_POST['phonenumber'];
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +30,6 @@
 			<div>
 				<a href="main.php"> 돌아가기</a>
 			</div>
-
 		</div>
 	</div>
 </body>

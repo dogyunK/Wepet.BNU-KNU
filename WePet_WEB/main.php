@@ -24,8 +24,8 @@
 			</div>
 
 			<div>
-				<a href="main_dol.php">돌보미 게시판</a>
-				<a href="main_mat.php">맡기미 게시판</a>
+				<a href="main_dol.php?dol">돌보미 게시판</a>
+				<a href="main_mat.php?mat">맡기미 게시판</a>
 			</div>
 
 			

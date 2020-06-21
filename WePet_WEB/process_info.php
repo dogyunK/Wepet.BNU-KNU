@@ -17,7 +17,7 @@ $conn = mysqli_connect('localhost', 'root', '111111', 'userinfo');
 
 // db에 보낼 sql문
 if( $userType == 'dol'){
-    $sql = "INSERT INTO 돌보미 (name, phonenumber, date1, date2, area1, area2, addrex, dolCondition, requierment) VALUES(
+    $sql = "INSERT INTO 돌보미 (name, phonenumber, date1, date2, area1, area2, addrex, userCondition, requierment) VALUES(
             '{$name}', '{$phonenumber}',
             '{$date1}', '{$date2}',
             '{$area1}', '{$area2}', '{$addrex}',
@@ -26,7 +26,7 @@ if( $userType == 'dol'){
     ";
 }
 if( $userType == 'mat'){
-    $sql = "INSERT INTO 맡기미 (name, phonenumber, date1, date2, area1, area2, addrex, matCondition, requierment) VALUES(
+    $sql = "INSERT INTO 맡기미 (name, phonenumber, date1, date2, area1, area2, addrex, userCondition, requierment) VALUES(
             '{$name}', '{$phonenumber}',
             '{$date1}', '{$date2}',
             '{$area1}', '{$area2}', '{$addrex}',

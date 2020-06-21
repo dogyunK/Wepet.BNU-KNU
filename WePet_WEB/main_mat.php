@@ -1,3 +1,16 @@
+<?php
+	$conn = mysqli_connect('localhost', 'root', '111111', 'userinfo');
+
+	$sql = "SELECT * FROM 맡기미";
+	
+	$result = mysqli_query($conn, $sql);
+	$list = '';
+
+	while($row = mysqli_fetch_array($result) ){
+		$list = $list."<li><a href='page_mat_list.php?id={$row['matID']}'>{$row['name']}</a></li>";
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,8 +27,8 @@
  	</div>
  	<div class="main">
  		<div class="info">
-			<h2>
-				안녕하세요. 어떤 서비스를 원하시나요?
+		 	<h2>
+				맡기미 게시판
 			</h2>
 
 			<div>
@@ -28,7 +41,8 @@
 				<a href="main_mat.php">맡기미 게시판</a>
 			</div>
 
-			
+			<p> 등록된 맡기미 목록 </p>
+			<?=$list;?>
 		</div>
 	</div>
 </body>

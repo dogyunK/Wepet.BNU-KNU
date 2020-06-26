@@ -18,17 +18,19 @@
 				안녕하세요. 어떤 서비스를 원하시나요?
 			</h2>
 
+			
 			<div>
 				<a href="등록하기.php"> 등록하기</a>
 				<a href="조회하기.php"> 조회하기</a>
 			</div>
 
-			<div>
-				<a href="main_dol.php?dol">돌보미 게시판</a>
-				<a href="main_mat.php?mat">맡기미 게시판</a>
-			</div>
+			<p>
+				사용자 등록을 해야 서비스 이용이 가능합니다.
+			</p>
 
-			
+			<div>
+				<a href="main_dol.php?dol">관리자</a>
+			</div>
 		</div>
 	</div>
 </body>

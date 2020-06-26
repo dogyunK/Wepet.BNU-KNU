@@ -3,32 +3,56 @@
 
     $userType = $_POST['userType'];
     $phonenumber = $_POST['phonenumber'];
-
+	$idString = null;
 
     if( $userType == 'dol' ){
-	$sql = "SELECT * FROM 돌보미 WHERE code = {$phonenumber}";
+		$sql = "SELECT * FROM 돌보미 WHERE phonenumber = {$phonenumber}";
+		$userTypeMsg = '돌보미';
     }
     else if( $userType == 'mat' ){
-        $sql = "SELECT * FROM 맡기미 WHERE code = {$phonenumber}";
+		$sql = "SELECT * FROM 맡기미 WHERE phonenumber = {$phonenumber}";
+		$userTypeMsg = '맡기미';
     }
 
-    
+	// 조회 전화번호와 매칭된 사람의 정보
 	$result = mysqli_query($conn, $sql);
-	$list = '';
+	//테이블 행 값 가져오기
+	while( $row = mysqli_fetch_array($result) ){
+		$idString = $row['id'];
+		$name = $row['name'];
+		$phonenumber1 = $row['phonenumber'];
+		$date1 = $row['date1'];
+		$date2 = $row['date2'];
+		$area1 = $row['area1'];
+		$area2 = $row['area2'];
+		$addrex = $row['addrex'];
+		$Condition = $row['userCondition'];
+		$requierment = $row['requierment'];
 
-
-    // 테이블에서 일치하는 전화번호의 행을 다 불러와야함.
-	while($row = mysqli_fetch_array($result) ){
-		$list = $list.
-			"
-				<h1>{$phonenumber}님과 매칭된 분의 정보입니다.</h1>
-				<p>이름 : {$row['name']}</p>
-				<p>전화번호 : {$row['phonenumber']}</p>
-				<p>날짜 : {$row['date1']} ~ {$row['date2']}</p>
-				<p>지역 : {$row['area1']} {$row['area2']} {$row['addrex']}</p>
-				<p>기타</br>{$row['userCondition']} {$row['requierment']}</p>
-            ";
+		$code = $row['code'];
+		$accept = $row['accept'];
 	}
+
+	if( $idString === null){
+		$list = "<h2>일치하는 정보가 없습니다</h2>";
+	}
+	else{
+		$list = 
+			"
+			<div>
+				<a href='조회하기_신청함.php?id=$idString/$userType'> 신청한 매칭 </a>
+				<a href='조회하기_신청받음.php?id=$idString/$userType'> 신청받은 매칭</a>
+			</div>
+				<h2>{$userTypeMsg}입니다.</h2>
+				<p>{$phonenumber}로 등록된 정보입니다.</p>
+				<p>이름 : {$name}</p>
+				<p>날짜 : {$date1} ~ {$date2}</p>
+				<p>지역 : {$area1} {$area2} {$addrex}</p>
+				<p>조건</br>{$Condition}</p>
+				<p>요구사항</br>{$requierment}</p>
+			";
+	}
+	
 ?>
 
 <!DOCTYPE html>
@@ -45,17 +69,21 @@
       		<img src="images/logo.png" height="50">
     	</a>
  	</div>
+
  	<div class="main">
+	 
  		<div class="info">
-			<h2>
-				요청하신 정보입니다.
-			</h2>
 
-            <?=$list;?>
 
-			<a href="main.php"> 돌아가기</a>
-			<a href="조회하기.php"> 다시 조회하기</a>
+			<?=$list?>
+
+			<div>
+				<a href="main.php"> 돌아가기</a>
+				<a href="조회하기.php"> 다시 조회하기</a>
+			</div>
+
 		</div>
+
 	</div>
 </body>
 </html>

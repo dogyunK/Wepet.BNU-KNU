@@ -1,34 +1,32 @@
 <?php
-
 	$conn = mysqli_connect('localhost', 'root', '111111', 'userinfo');
-
-	$phonenumber = $_POST['phonenumber'];
 
 	$url = getenv("QUERY_STRING");	//웹주소에서 정보 가져오기
 	$idString = preg_replace("/[^0-9]*/s", "", $url);	//문자열에서 숫자만 추출하기
-
-	echo $idString;
-	echo $phonenumber;
+	$phonenumber = $_POST['phonenumber'];
 
 	if( stristr( $url, 'dol' ) ){
 		$userType = 'dol';
-		$sql = "UPDATE 돌보미 SET code = '{$phonenumber}' WHERE id = {$idString}";	
+		$sql = "DELETE FROM 돌보미 WHERE phonenumber = '{$phonenumber}'";
 	}
 	if( stristr( $url, 'mat') ){
 		$userType = 'mat';
-		$sql = "UPDATE 맡기미 SET code = '{$phonenumber}' WHERE id = {$idString}";
+		$sql = "DELETE FROM 맡기미 WHERE phonenumber = '{$phonenumber}'";
 	}
 
-	$result = mysqli_query($conn, $sql);
-
-	if( $result === false ){
-		echo '오류발생';
-		echo mysqli_error($conn);
-	}
-	else{
-		echo '등록성공';
-	}
+    $result = mysqli_query($conn, $sql);
+    
+    /*
+    if( $result === false ){
+        echo '오류발생 <a href="page_dol_new.php">돌아가기</a>';
+        echo mysqli_error($conn);
+    }
+    else{
+        echo '성공';
+    }
+    */
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -47,12 +45,10 @@
  	<div class="main">
  		<div class="info">
 			<h2>
-				신청되었습니다.
+				삭제되었습니다.
 			</h2>
 
-			<div>
-				<a href="main.php"> 돌아가기</a>
-			</div>
+			<a href="main_<?php echo $userType;?>.php?<?php echo $userType;?>">돌아가기</a>
 		</div>
 	</div>
 </body>

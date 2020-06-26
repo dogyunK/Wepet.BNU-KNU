@@ -11,7 +11,7 @@
 	while($row = mysqli_fetch_array($result) ){
 		$list = $list.
 			"<li>
-				<a href='정보보기.php?id={$row['id']}/{$userType}'>{$row['name']}</a>
+				<a href='정보보기.php?id={$row['id']}/{$userType}'>{$row['name']} / {$row['area1']}</a>
 			</li>";
 	}
 ?>
@@ -32,12 +32,11 @@
  	</div>
  	<div class="main">
  		<div class="info">
-		 	<h2>
-				맡기미 게시판
-			</h2>
+		 	<h1>
+				<b>맡기미 게시판</b>
+			</h1>
 
 			<div>
-				<a href="등록하기.php"> 등록하기</a>
 				<a href="조회하기.php"> 조회하기</a>
 			</div>
 

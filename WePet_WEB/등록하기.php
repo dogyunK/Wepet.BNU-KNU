@@ -15,9 +15,46 @@
 				dataFormat : 'yy-mm-dd'
 			});
 		});
-	</script>
 
-	<script type="text/javascript">
+		function check_onclick() {
+			
+			if (document.dol_info.name.value == "") {
+				alert("이름을 입력하지 않았습니다.")
+				document.dol_info.name.focus()
+				return false;
+			}
+			
+			if (document.dol_info.phonenumber.value == "") {
+				alert("전화번호를 입력하지 않았습니다.")
+				document.dol_info.phonenumber.focus()
+				return false;
+			}
+
+			if (document.dol_info.date_start.value == "") {
+				alert("시작날짜를 입력하지 않았습니다.")
+				document.dol_info.date_start.focus()
+				return false;
+			}
+			if (document.dol_info.date_end.value == "") {
+				alert("종료날짜를 입력하지 않았습니다.")
+				document.dol_info.date_end.focus()
+				return false;
+			}
+
+			if (document.dol_info.sim_addr.value == "지역") {
+				alert("지역을 입력하지 않았습니다.")
+				document.dol_info.sim_addr.focus()
+				return false;
+			}
+			if (document.dol_info.sim_addrex.value == "상세") {
+				alert("상세지역을 입력하지 않았습니다.")
+				document.dol_info.sim_addrex.focus()
+				return false;
+			}
+
+
+			document.dol_info.submit();
+		}
 		function changes(fr) {
 			if(fr=="서울") {
 				num = new Array("종로구","중구","용산구","성동구","광진구", "동대문구","중랑구","성북구","강북구","도봉구","노원구","은평구","서대문구","마포구","양천구","강서구","구로구","금천구","영등포구","동작구","관악구","서초구","강남구","송파구","강동구");
@@ -97,6 +134,7 @@
 			}
 	</script>
 
+	
 </head>
 
 <body>
@@ -109,8 +147,8 @@
  	<div class="match_c_form">
  		<h1>정보 입력</h1>
 
-		<form name="dol_info" action="등록완료.php" method="POST">
-			<label><input type="radio" name="userType" value="dol"> 돌보미</label>
+		<form name="dol_info" onsubmit="return check_onclick();" action="등록완료.php" method="POST">
+			<label><input type="radio" name="userType" value="dol" checked="checked"> 돌보미</label>
 			<label><input type="radio" name="userType" value="mat"> 맡기미</label>
 
 			<input type="text" name="name" class="text-field_1 nameInput" placeholder="성명">
@@ -148,15 +186,14 @@
 
 			<input type="text" name="addrex" class="text-field_2 addrexInput"placeholder="상세주소">
 
-			<button type="button" onclick="openZipSearch()" class="adr-btn">주소검색</button><br>
-
 			<textarea  name="Condition" cols="50" rows="10" class="text-field_3 conditionInput" placeholder="돌봄 조건"></textarea>
 
 			<textarea  name="requier" cols="50" rows="10" class="text-field_3 requirementInput" placeholder="요구 사항"></textarea>
 
-			<input type="submit" class="submit-btn" value="등록">
+			<input type="submit" onclick="check_onclick()" class="submit-btn" value="등록">
  		</form>
 	</div>
+
 
 </body>
 </html>

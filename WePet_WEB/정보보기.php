@@ -4,17 +4,17 @@
 	$url = getenv("QUERY_STRING");	//웹주소에서 정보 가져오기
 	$idString = preg_replace("/[^0-9]*/s", "", $url);	//문자열에서 숫자만 추출하기
 
-
 	if( stristr( $url, 'dol' ) ){
 		$userType = 'dol';
 		$sql = "SELECT * FROM 돌보미 WHERE id={$idString}";
+		$dateString = '맡을 수 있는 기간';
 	}
 	if( stristr( $url, 'mat') ){
 		$userType = 'mat';
 		$sql = "SELECT * FROM 맡기미 WHERE id={$idString}";
+		$dateString = '맡기고 싶은 기간';
 	}
-	
-	
+
 	$result = mysqli_query($conn, $sql);
 	$list = '';
 
@@ -22,13 +22,11 @@
         $list = $list.
             "
 				<h1>{$row['name']}님의 정보입니다.</h1>
-				<p>전화번호 : {$row['phonenumber']}</p>
-				<p>날짜 : {$row['date1']} ~ {$row['date2']}</p>
+				<p>{$dateString} : {$row['date1']} ~ {$row['date2']}</p>
 				<p>지역 : {$row['area1']} {$row['area2']} {$row['addrex']}</p>
 				<p>기타</br>{$row['userCondition']} {$row['requierment']}</p>
             ";
 	}
-
 ?>
 
 <!DOCTYPE html>
@@ -56,9 +54,10 @@
 			<form action="신청완료.php?id=<?php echo $idString;?>/<?php echo $userType;?>" method="POST">
 				<input type="text" name="phonenumber" class="text-field_1 numberInput" placeholder="연락처">
 				<input type="submit" class="submit-btn" value="이사람과 매칭하기"></br>
-				<a href="main_dol.php">돌아가기</a>
 			</form>
 
+			<a href="삭제하기.php?id=<?php echo $idString;?>/<?php echo $userType;?>">삭제하기</a>
+			<a href="main_<?php echo $userType;?>.php?<?php echo $userType;?>">돌아가기</a>
 		</div>
 	</div>
 </body>

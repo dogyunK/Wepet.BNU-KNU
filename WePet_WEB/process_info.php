@@ -38,6 +38,7 @@ if( $userType == 'mat'){
 // db로 sql문 실행
 $result = mysqli_query($conn, $sql);
 
+/*
 if( $result === false ){
     echo '오류발생 <a href="page_dol_new.php">돌아가기</a>';
     echo mysqli_error($conn);
@@ -45,5 +46,6 @@ if( $result === false ){
 else{
     echo '등록성공';
 }
+*/
 
 ?>

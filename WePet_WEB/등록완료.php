@@ -23,7 +23,8 @@
 			</h2>
 
 			<div>
-				<a href="main.php"> 돌아가기</a>
+				<a href="main_dol.php?dol"> 돌보미 게시판</a>
+				<a href="main_mat.php?mat"> 맡기미 게시판</a>
 			</div>
 
 			

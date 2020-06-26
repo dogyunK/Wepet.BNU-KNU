@@ -100,6 +100,7 @@
 </head>
 
 <body>
+
 	<div id="navbar">
     	<a id="logo" href="main.php">
       		<img src="images/logo.png" height="50">
@@ -157,7 +158,5 @@
  		</form>
 	</div>
 
-	<!--데이터 입력 검사, 주소 검색-->
-	<script src = "js/new.js"></script>
 </body>
 </html>

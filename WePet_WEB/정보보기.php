@@ -55,7 +55,7 @@
 			
 			<form action="신청완료.php?id=<?php echo $idString;?>/<?php echo $userType;?>" method="POST">
 				<input type="text" name="phonenumber" class="text-field_1 numberInput" placeholder="연락처">
-				<input type="submit" class="submit-btn" value="매칭하기"></br>
+				<input type="submit" class="submit-btn" value="이사람과 매칭하기"></br>
 				<a href="main_dol.php">돌아가기</a>
 			</form>
 
